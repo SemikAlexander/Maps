@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MapTest</string>
+
+    <string name="tomtom_api">vtbSO6qbBZjx3HHtk7ggYIOx1gzieS3c</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
