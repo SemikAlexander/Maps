@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
                 .beginTransaction()
                 .replace(mapFrameLayout.id, MapFragment())
                 .commit()
-
         }
     }
 }
