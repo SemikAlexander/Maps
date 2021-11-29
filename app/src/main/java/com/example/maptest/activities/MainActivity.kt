@@ -1,4 +1,4 @@
-package com.example.maptest
+package com.example.maptest.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             supportFragmentManager
                 .beginTransaction()
-                .replace(mapFrameLayout.id, MapFragment())
+                .replace(mapFrameLayout.id, MapsFragment())
                 .commit()
         }
     }

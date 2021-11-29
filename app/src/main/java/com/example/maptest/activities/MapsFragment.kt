@@ -1,12 +1,14 @@
-package com.example.maptest
+package com.example.maptest.activities
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.maptest.R
 import com.example.maptest.geoAPI.API
 import com.example.maptest.geoDataClasses.geoDataClass
+import com.example.maptest.toast
 import com.tomtom.online.sdk.common.location.LatLng
 import com.tomtom.online.sdk.common.util.DistanceCalculator
 import com.tomtom.online.sdk.map.MapFragment
@@ -18,7 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MapFragment : Fragment() {
+class MapsFragment : Fragment() {
 
     var tomtomMap: TomtomMap? = null
 
