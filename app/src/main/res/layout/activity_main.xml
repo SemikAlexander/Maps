@@ -13,4 +13,14 @@
         android:layout_height="match_parent"
         tools:ignore="UselessParent"/>
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/typeMap"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_map"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:layout_alignParentEnd="true"
+        android:tag="invisible"/>
+
 </RelativeLayout>

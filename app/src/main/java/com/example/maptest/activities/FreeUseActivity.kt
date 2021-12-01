@@ -7,6 +7,7 @@ import com.example.maptest.R
 import com.example.maptest.R.drawable.*
 import com.example.maptest.toast
 import com.tomtom.online.sdk.common.location.LatLng
+import com.tomtom.online.sdk.common.util.DistanceCalculator
 import com.tomtom.online.sdk.map.*
 import com.tomtom.online.sdk.map.Icon.Factory.*
 import com.tomtom.online.sdk.routing.OnlineRoutingApi
@@ -43,7 +44,12 @@ class FreeUseActivity : AppCompatActivity(), OnMapReadyCallback,
 
         initTomTomServices()
         initUIViews()
-        setupUIViewListeners()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        clearMap()
+        finish()
     }
 
     override fun onMapReady(tomtomMap: TomtomMap) {
@@ -106,6 +112,14 @@ class FreeUseActivity : AppCompatActivity(), OnMapReadyCallback,
                         destinationPosition = geocodedPosition
                         tomtomMap.removeMarkers()
                         drawRoute(departurePosition, destinationPosition)
+
+                        val distance =
+                            DistanceCalculator
+                                .calcDistInKilometers(destinationPosition, departurePosition)
+
+                        toast("Длина маршрута = ${distance.format(2)}")
+
+                        /*В документации TomTom мной не было найдено функции для отрисовки маршрута на проложенном маршруте.*/
                     }
                 }
 
@@ -149,9 +163,6 @@ class FreeUseActivity : AppCompatActivity(), OnMapReadyCallback,
     private fun initUIViews() {
         departureIcon = fromResources(this, ic_map_route_departure)
         destinationIcon = fromResources(this, ic_map_route_destination)
-    }
-
-    private fun setupUIViewListeners() {
     }
 
     private fun clearMap() {
@@ -229,3 +240,5 @@ class FreeUseActivity : AppCompatActivity(), OnMapReadyCallback,
         }
     }
 }
+
+private fun Double.format(digits: Int) = "%.${digits}f".format(this)

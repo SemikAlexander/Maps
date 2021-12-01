@@ -19,16 +19,21 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import com.example.maptest.databinding.FragmentMapBinding
 
 class MapsFragment : Fragment() {
+
+    private var _binding: FragmentMapBinding? = null
+    private val binding get() = _binding!!
 
     var tomtomMap: TomtomMap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_map, container, false)
+    ): View {
+        _binding = FragmentMapBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     @DelicateCoroutinesApi
@@ -98,7 +103,14 @@ class MapsFragment : Fragment() {
                     LatLng(routes[0].latitude, routes[0].longitude))
             }
 
-            toast(distance.toString())
+            toast("Длина маршрута = ${distance.format(2)}")
         }
+    }
+
+    private fun Double.format(digits: Int) = "%.${digits}f".format(this)
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

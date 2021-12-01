@@ -3,6 +3,7 @@ package com.example.maptest.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.maptest.databinding.ActivityMainBinding
+import com.example.maptest.startActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
                 .beginTransaction()
                 .replace(mapFrameLayout.id, MapsFragment())
                 .commit()
+
+            typeMap.setOnClickListener { startActivity<FreeUseActivity>() }
         }
     }
 }
