@@ -117,7 +117,7 @@ class FreeUseActivity : AppCompatActivity(), OnMapReadyCallback,
                             DistanceCalculator
                                 .calcDistInKilometers(destinationPosition, departurePosition)
 
-                        toast("Длина маршрута = ${distance.format(2)}")
+                        toast("Длина маршрута = ${distance.format(2)} км")
 
                         /*В документации TomTom мной не было найдено функции для отрисовки маршрута на проложенном маршруте.*/
                     }

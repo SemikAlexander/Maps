@@ -103,7 +103,7 @@ class MapsFragment : Fragment() {
                     LatLng(routes[0].latitude, routes[0].longitude))
             }
 
-            toast("Длина маршрута = ${distance.format(2)}")
+            toast("Длина маршрута = ${distance.format(2)} км")
         }
     }
 
